@@ -1,0 +1,38 @@
+===============================================================================
+WARNING:
+===============================================================================
+This script is designed to initialize the DataWarehouse environment. 
+
+CAUTION: 
+Executing this script will PERMANENTLY DROP the 'DataWarehouse' database 
+if it already exists, effectively deleting all stored data, tables, 
+stored procedures, and views within it. 
+
+Ensure you have a current backup of your data before running this script 
+in any environment other than a local development instance.
+
+Project: Data Warehouse Implementation
+Purpose: Setup staging (bronze), transformation (silver), and reporting (gold) 
+         schema architecture.
+===============================================================================
+*/
+
+
+
+-- create database datawarehouse --
+
+--drop and recreate the database--
+if exists(select 1 from sys.databases where name =='DataWarehouse')
+begin
+	alter database DataWarehouse set single_user with rollback immediate;
+	drop database DataWarehouse;
+End;
+go
+
+create database DataWarehouse;
+use DataWarehouse;
+
+--creating schemas for each layer --
+create schema bronze;
+create schema silver;
+create schema gold;
