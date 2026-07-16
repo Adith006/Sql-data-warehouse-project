@@ -14,7 +14,7 @@ This documentation defines the structure and business logic for the dimension an
 
 |Column Name|Data Type|Meaning|
 |---|---|---|
-|customer_key|BIGINT|Surrogate key for the customer<br>record.|
+|customer_key|INT|Surrogate key for the customer<br>record.|
 |Customer_Id|INT|Unique identifier from the<br>source CRM.|
 |Customer_Number|NVARCHAR|Business-level unique key for<br>the customer.|
 |First_Name|NVARCHAR|Customer’s first name.|
